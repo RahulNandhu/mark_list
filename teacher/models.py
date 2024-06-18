@@ -13,7 +13,7 @@ class Customuser(AbstractUser):
 
 class Teacher(models.Model):
     Name=models.CharField(max_length=30)
-    Tid=models.IntegerField()
+    Tid=models.IntegerField(unique=True)
     Registerd=models.CharField(max_length=20,default='No')
     Registerd_on=models.DateTimeField(auto_now_add=True)
 
@@ -22,7 +22,7 @@ class Teacher(models.Model):
 
 class Students(models.Model):
     Name = models.CharField(max_length=30)
-    Sid = models.IntegerField()
+    Sid = models.IntegerField(unique=True)
     Registerd = models.CharField(max_length=20, default='No')
     Registerd_on = models.DateTimeField(auto_now_add=True)
 
