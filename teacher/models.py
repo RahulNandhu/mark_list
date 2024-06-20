@@ -30,14 +30,14 @@ class Students(models.Model):
         return self.Name
 
 class Semester(models.Model):
-    Semster_choices = [
+    Semster_choices = (
         ('Semester 1', 'Semester 1'),
         ('Semester 2', 'Semester 2'),
         ('Semester 3', 'Semester 3'),
         ('Semester 4', 'Semester 4'),
         ('Semester 5', 'Semester 5'),
         ('Semester 6', 'Semester 6'),
-    ]
+    )
 
     name=models.CharField(max_length=30,choices=Semster_choices,unique=True)
 
@@ -63,4 +63,4 @@ class Marks(models.Model):
         return (self.Language_1 + self.Language_2 + self.Maths + self.Chemistry + self.Physics + self.Statistics + self.Computer_Science)
 
     def __str__(self):
-        return f'{self.student.name}_{self.semester.name}'
+        return f'{self.student.Name}_{self.semester.name}'
