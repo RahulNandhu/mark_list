@@ -2,6 +2,22 @@
 {% load static %}
 {% block body %}
 
+<div class="container-fluid">
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+
+        <div class="form-group" style="width:10%;">
+            <label class="form-label fw-bold">Semester</label>
+            <select class="form-control" name="gender">
+                {% for i in sem %}
+                <option value={{i}}>{{i}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+    </form>
+</div>
+
 
 <div class="row container-fluid">
     <div class="col-md-3 ms-4">
@@ -14,4 +30,5 @@
         <h4 class="fw-bold">Physics Master's</h4>
     </div>
 </div>
+
 {% endblock %}
