@@ -22,10 +22,16 @@
 <div class="row container-fluid">
     <div class="col-md-3 ms-4">
         <h3 class="fw-bold">Top Students</h3>
+        <div>
         {% for i in T3 %}
-        <h3 style="display:inline;">{{i.student}}</h3>
-        <p style="display:inline;" class="ps-3">{{i.Total}}</p>
+            <table class="table">
+                <tr>
+                    <td>{{i.student}}</td>
+                    <td>{{i.Total}}</td>
+                </tr>
+            </table>
         {% endfor %}
+        </div>
     </div>
     <div class="col-md-3 ms-4">
         <h4 class="fw-bold">Maths Guru's</h4>
