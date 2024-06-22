@@ -19,5 +19,11 @@ def Home(request):
     if len(Top_3)>3:
         Top_3=Top_3[3]
 
-    context={'T3':Top_3}
+
+    Maths=Marks.objects.all().order_by('-Maths')
+
+    if len(Maths) >3:
+        Maths=Maths[3]
+
+    context={'T3':Top_3,'Maths':Maths}
     return render(request,template_name='Home.html',context=context)
