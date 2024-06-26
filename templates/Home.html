@@ -48,12 +48,12 @@
     </div>
 
     <div class="col-md-4 ms-4 fw-bold">
-        <h3 class="fw-bold">Top Students</h3>
+        <h3 class="fw-bold text-center">Top Students</h3>
         <div>
 
-            <table class="table">
+            <table class="table box-element">
                 {% for i in T3 %}
-                <tr>
+                <tr class="border border-1">
                     <td>{{i.student__Name}}</td>
                     <td>{{i.total_marks}}</td>
                 </tr>
