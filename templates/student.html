@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-<h6>studtjnhr</h6>
+<h6 class="text-secondary">{{msg}}</h6>
+<div class="container-fluid">
+    <table class="table border border-2" style="width:20%;">
+        <tr>
+            <th class="border" style="width:30%;">Sid</th>
+            <td>{{st.Sid}}</td>
+        </tr>
+        <tr>
+            <th class="border" style="width:30%;">Name</th>
+            <td>{{st.Name}}</td>
+        </tr>
+    </table>
+</div>
 {% endblock %}
