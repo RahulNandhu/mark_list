@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-<h6 class="text-secondary">{{msg}}</h6>
 <div class="container-fluid">
-    <table class="table border border-2" style="width:20%;">
-        <tr>
-            <th class="border" style="width:30%;">Sid</th>
-            <td>{{st.Sid}}</td>
-        </tr>
-        <tr>
-            <th class="border" style="width:30%;">Name</th>
-            <td>{{st.Name}}</td>
-        </tr>
-    </table>
+    <div class="row">
+        <div class="col-md-4">
+            {% if st %}
+            <table class="table border border-2" style="width:20%;">
+                <tr>
+                    <th class="border" style="width:30%;">Sid</th>
+                    <td>{{st.Sid}}</td>
+                </tr>
+                <tr>
+                    <th class="border" style="width:30%;">Name</th>
+                    <td>{{st.Name}}</td>
+                </tr>
+            </table>
+            {% else %}
+            <h5>{{msg}}</h5>
+            {% endif %}
+        </div>
+        {% if st %}
+        <div class="col-md-8">
+            <a class="btn btn-primary" href="{% url 'student:Mark' st.Sid %}">Get Mark List</a>
+        </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

@@ -18,3 +18,20 @@ def Search_student(request):
             return render(request, template_name='student.html',context={'msg':msg,'st':st})
         else:
             return render(request,template_name='student.html',context={'msg':'Enter Student Id'})
+
+
+def MarkList(request,p):
+
+    if request.method=='POST':
+        student=Students.objects.get(Sid=p)
+        sem=request.POST['Semester']
+        if sem:  # Check if semester is provided
+            try:
+                marks = Marks.objects.get(semester=sem, student=student)
+                return render(request, 'marklist.html', {'marks': marks})
+            except Marks.DoesNotExist:
+                # Handle the case where the marks are not found
+                return render(request, 'marklist.html', {'error': 'Marks not found for the selected semester.'})
+        else:
+            return render(request, 'marklist.html', {'error': 'Please select a semester.'})
+    return render(request,template_name='marklist.html')

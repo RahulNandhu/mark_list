@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+
+        <div class="form-group" style="width:15%;">
+            <label class="form-label fw-bold">Semester</label>
+            <select class="form-control" name="Semester">
+                <option value=1>Select semester</option>
+                {% for i in sem %}
+                <option value={{i.id}}>{{i}}</option>
+                {% endfor %}
+
+            </select>
+            <div class="m-2 mb-4">
+                <button type="submit" class="btn btn-primary"> Select </button>
+            </div>
+        </div>
+
+    </form>
+    <div class="container-fluid">
+        {% if marks%}
+        <h4 class="text-primary">{{marks.semester}}</h4>
+
+        <table class="table border border-2" style="width:40%;">
+            <tr>
+                <th>Language 1</th>
+                <td>{{marks.Language_1}}</td>
+            </tr>
+            <tr>
+                <th>Language 2</th>
+                <td>{{marks.Language_2}}</td>
+            </tr>
+            <tr>
+                <th>Chemistry</th>
+                <td>{{marks.Chemistry}}</td>
+            </tr>
+            <tr>
+                <th>Physics</th>
+                <td>{{marks.Physics}}</td>
+            </tr>
+            <tr>
+                <th>Maths</th>
+                <td>{{marks.Maths}}</td>
+            </tr>
+            <tr>
+                <th>Statistics</th>
+                <td>{{marks.Statistics}}</td>
+            </tr>
+            <tr>
+                <th>Computer</th>
+                <td>{{marks.Computer_Science}}</td>
+            </tr>
+        </table>
+        {% else %}
+        <h3>{{error}}</h3>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
